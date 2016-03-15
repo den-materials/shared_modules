@@ -176,21 +176,38 @@ Functions may perform actions upon Strings as well.
 
 In the case of the function spacesToDashes, the function description 'spaces to dashes' the first letters were capitalized and the phrase was concatenated to 'spacesToDashes'
     
-## Functions with Return Values
-Functions also have the ability to send results back for later use.
+##Explicit vs. Implicit Return Values
+Functions that return a variable or value are said to have *Explicit* returns.  Functions that simply have a return statement without a variable or value following it are called *Implicit* returns.  Implicit returns will returned an `undefined` value, which is perfectly fine!  Calling the return statement in a function simply signals that the function should end and return control back to the point that called the said function.
 
-```javascript
-    // square a number and return the new value
-    function square(a) {
-      return a * a;
-    }
+###Explicit Example
+``` javascript
+function explicitFunction() {
+    return "Here Is My Explicit Return Value";
+}
 
-    var mySquaredValue = square(8);
-    mySquaredValue // 64
+var returnValue = explicitFunction():
+returnValue === "Here Is My Explicit Return Value"; // true
 ```
-The particular function above multiplies the value it received as a parameter by itself and *returns* the resulting product back to the point where it was called.  The variable `mySquaredValue` now has the *return* value of the function `square(8)` assigned to it. 
 
+###Implicit Example
 
+``` javascript
+function implicitFunction() {
+    // What do I return?
+}
+
+var returnValue = implicitFunction():
+returnValue === undefined; // true
+```
+
+``` javascript
+function implicitFunction2() {
+    return; // What do I return?
+}
+
+var returnValue = implicitFunction2():
+returnValue === undefined; // true
+```
 
 ##Functions and Booleans
 Functions are able to receive and return boolean values.  Functions that return boolean values are commonly used to check the states of variables and whether conditions are met.
