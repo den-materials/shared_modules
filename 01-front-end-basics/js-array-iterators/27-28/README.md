@@ -1,4 +1,4 @@
-# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Array Traversals and Actions
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Iterators
 
 <img src="http://49.media.tumblr.com/tumblr_lkvyr02YWz1qg39ewo1_500.gif" width=400px>
 
@@ -13,7 +13,7 @@
 
 It's time to dig a little deeper into arrays, and array manipulation methods.
 
-# Using Iterators
+# Using Array Iterators
 
 ## `for` Loop Review
 We've already seen that we can traverse an array of elements with a simple `for` loop.
@@ -40,11 +40,9 @@ Sometimes you need a power-drill.
 
 <img src="https://media.giphy.com/media/uy1hknkaJu8UM/giphy.gif" width="200px">
 
-It's time we "leveled-up" and learned about `forEach`!
+It's time we "leveled-up" and learned about iterators like `forEach`!
 
-## Built-In Array Iteration Methods
-
-#### array.forEach()
+## Array.prototype.forEach()
 
 Looping over arrays is such a common problem that a clever programmer decided it should just be a built-in method (`Array.prototype.forEach`).
 
@@ -58,8 +56,8 @@ Here's an example of looping over a list of `fruits`:
 var fruits = ["Apple", "Banana", "Cherry", "Durian", "Elderberry",
 "Fig", "Guava", "Huckleberry", "Ice plant", "Jackfruit"];
 
-function fruitPrinter(element, index) {
-    console.log(index + ". " + element);
+function fruitPrinter(current_value, current_index) {
+    console.log(current_index + ". " + current_value);
 }
 
 array.forEach(fruitsPrinter);
@@ -81,36 +79,36 @@ array.forEach(fruitsPrinter);
 A little later we saw that we could write the same thing a little more succinctly.
 
 ```javascript
-fruits.forEach(function fruitPrinter(element, index) {
-    console.log(index + ". " + element);
+fruits.forEach(function fruitPrinter(value, index) {
+    console.log(index + ". " + value);
 });
 // same output as above
 ```
 
 See how `fruitPrinter` is now declared right inside the call to `fruits.forEach`?  If we don't need to use `fruitPrinter` anywhere else, this syntax can be quite convenient.
 
-**Anonymous Functions**
+#### Anonymous Functions
 
 We can shorten up our code even further by removing the "name" part of our function definition.
 
 This is called an *anonymous function*:
 
 ```javascript
-fruits.forEach(function (element, index) {
-    console.log(index + ". " + element);
+fruits.forEach(function (value, index) {
+    console.log(index + ". " + value);
 });
 // same output as above
 ```
 
 All three of these will have the exact same output.  If you don't believe me copy each one into your browser console and try it.
 
-#### array.map()
+## Array.prototype.map()
 Similar to `forEach()`, `map()` traverses an array; this method, however, performs whatever callback function you pass into it on each element.  It outputs the results
 of the operation on each element as a new array.
 
 Often we want to do more than just perform an action, like console.log(), on every loop.  When we actually want to modify/manipulate our array, map is our best friend!
 
-**Example** - Double every number
+#### Example: Double every number
 
 ```JavaScript
 var numbers = [1, 4, 9];
@@ -120,7 +118,7 @@ var doubles = numbers.map(function doubler(num) {
 // doubles is now [2, 8, 18]. numbers is still [1, 4, 9]
 ```
 
-**Example** - Pluralize all the fruit names
+#### Example: Pluralize all the fruit names
 
 ```javascript
 pluralized_fruits = fruits.map(function pluralize(element) {
@@ -143,7 +141,7 @@ pluralized_fruits // MAP OUTPUT
 //   "Figs", "Guavas", "Huckleberries", "Ice plants", "Jackfruits"  ]
 ```
 
-**Example** - Square each number
+#### Example: Square each number
 
 ```javascript
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -154,13 +152,14 @@ numbers.map(function square(element) {
 //=> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
-**Exercise**: [let's play with `map`](exercises_a.md#challenge-1-map)
+#### Exercise
+[Let's play with `map`](exercises_a.md#challenge-1-map)
 
-#### array.filter()
+## Array.prototype.filter()
 With the `filter()` method you can create a *second* array filled with elements that pass certain criteria that you designate.  This is great for creating a sub array of fruits that start with vowels, a list of even numbers from a bigger list, and so on.  
   *It's important to remember that a filter method on an array requires a `boolean` return value for the callback function you pass as an argument.*
 
-**Example** - Return a list of fruits that start with vowels
+#### Example: Return a list of fruits that start with vowels
 
 ```javascript
 var vowels = ["A", "E", "I", "O", "U"];
@@ -185,7 +184,7 @@ var vowelFruits = fruits.filter(function vowelFruit(fruit) {
 
 ```
 
-**Example** - Find all the even numbers that are greater than 5 
+#### Example: Find all the even numbers that are greater than 5 
 
 ```javascript
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -199,12 +198,13 @@ even = numbers.filter(function filterEvens(num) {
 
 ```
 
-**Exercise**: [let's play with `filter`](exercises_a.md#challenge-2-filter)
+#### Exercise
+[Let's play with `filter`](exercises_a.md#challenge-2-filter)
 
-#### array.reduce()
+## Array.prototype.reduce()
 The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single element.
 
-**Example** - Return the first letter of every word, as a single string
+#### Example: Return the first letter of every word, as a single string
 
 ```javascript
 avgLen = fruits.reduce(function concatFirstLetter(previous, current, index) {
@@ -217,7 +217,7 @@ avgLen = fruits.reduce(function concatFirstLetter(previous, current, index) {
 
 ```
 
-**Example** - Find the sum of all of the numbers in an array
+#### Example: Find the sum of all of the numbers in an array
 
 ```javascript
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -250,7 +250,8 @@ In the above example, the first time the callback is called it receives `100` an
 
 > **Note**: We set the starting value to `100` by passing in an optional second argument to reduce. 
 
-**Exercise**: [ket's play with reduce](exercises_a.md#challenge-3-reduce)
+#### Exercise
+[Let's play with reduce](exercises_a.md#challenge-3-reduce)
 
 
 ## Array Documentation
