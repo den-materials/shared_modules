@@ -152,7 +152,7 @@ numbers.map(function square(element) {
 //=> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
-#### Exercise
+#### Exercise - Map
 [Let's play with `map`](exercises_a.md#challenge-1-map)
 
 ## Array.prototype.filter()
@@ -198,7 +198,7 @@ even = numbers.filter(function filterEvens(num) {
 
 ```
 
-#### Exercise
+#### Exercise - Filter
 [Let's play with `filter`](exercises_a.md#challenge-2-filter)
 
 ## Array.prototype.reduce()
@@ -250,8 +250,8 @@ In the above example, the first time the callback is called it receives `100` an
 
 > **Note**: We set the starting value to `100` by passing in an optional second argument to reduce. 
 
-#### Exercise
-[Let's play with reduce](exercises_a.md#challenge-3-reduce)
+#### Exercise - Reduce
+[Let's play with `reduce`](exercises_a.md#challenge-3-reduce)
 
 
 ## Array Documentation
@@ -260,10 +260,9 @@ The Mozilla Developer Network (MDN) has awesome documentation on Javascript's bu
 
 > **Pro-Tip**: Want to code like a pro? Memorize the built-in methods, and know how to use them!
 
-## Array Manipulation Exercises
+## Exercises
 
-Before we move on let's do the `map`, `reduce` and `filter` exercises.
-**Challenge Set A 1-3**
+Before we move on let's do the [Array Manipulation Exercises](exercises_a.md): `map`, `reduce` and `filter`.
 
 
 # Building Iterators
