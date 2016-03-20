@@ -1,15 +1,44 @@
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Array Traversals and Actions
 
-## Array Traversals and Actions ##
+<img src="http://49.media.tumblr.com/tumblr_lkvyr02YWz1qg39ewo1_500.gif" width=400px>
 
-Let's get back to arrays.
+|Learning Objectives|
+| :--- |
+| Review `for` loops and their use cases |
+| Compare and contrast `for` loops and `forEach` |
+| Review the callback pattern and callback arguments |
+| Discuss iterators `map`, `reduce`, and `filter` |
+| Use iterators to solve common array manipulation tasks |
+| Create our own implementation of iterators `forEach`, `map`, and `reduce` |
 
-We've already seen that we can traverse an array of elements with a simple for-loop. Then we learned about `forEach` and used that instead to iterate over arrays. Let's quickly review `forEach`.
+It's time to dig a little deeper into arrays, and array manipulation methods.
 
-### array.forEach() ###
+## `for` Loop Review
+We've already seen that we can traverse an array of elements with a simple `for` loop.
 
-To loop through an array with the ability to alter each element, similar to a for-loop traversal, JavaScript gives us an Array method `forEach()`
+```javascript
+var potatoes = ["Yukon Gold", "Russet", "Yellow Finn", "Kestrel"];
+for(var i=0; i<=potatoes.length-1; i++){
+    console.log(potatoes[i] + "!")
+}
+// Yukon Gold!
+// Russet!
+// Yellow Finn!
+// Kestrel!
+//=> undefined
+```
 
-**forEach function skeleton**:
+The `for` loop is a great tool! But look at all that configuration we had to do `var i=0; i<=potatoes.length-1; i++`. As you may have discovered, it's a little too easy to have an off-by-one error, or create an infinite loop!
+
+Enter `forEach`!
+
+## Built in Array Iterator Methods
+
+#### array.forEach()
+
+Looping over arrays is such a common problem, that a clever programmer decided it should just be a built in method (`Array.prototype.forEach`). That way we don't have to figure out how long the array is, and how many times we need to loop. We can just trust that `forEach` will do that for us!
+
+Here's an example of looping over a list of `fruits`:
 
 ```javascript
 var fruits = ["Apple", "Banana", "Cherry", "Durian", "Elderberry",
@@ -21,42 +50,47 @@ function fruitPrinter(element, index) {
 
 array.forEach(fruitsPrinter);
 
-/*  0. Apple
-  1. Banana
-  2. Cherry
-  3. Durian
-  4. Elderberry
-  5. Fig
-  6. Guava
-  7. Huckleberry
-  8. Ice plant
-  9. Jackfruit
-*/
+// 0. Apple
+// 1. Banana
+// 2. Cherry
+// 3. Durian
+// 4. Elderberry
+// 5. Fig
+// 6. Guava
+// 7. Huckleberry
+// 8. Ice plant
+// 9. Jackfruit
+//=> ["Apple", "Banana", "Cherry", "Durian", "Elderberry",
+"Fig", "Guava", "Huckleberry", "Ice plant", "Jackfruit"];
 ```
 
 A little later we saw that we could write the same thing a little more succinctly.
 
 ```javascript
-array.forEach(function fruitPrinter(element, index) {
+fruits.forEach(function fruitPrinter(element, index) {
     console.log(index + ". " + element);
 });
+// same output as above
 ```
 
-See how that `fruitPrinter` function is now declared right inside the call to `array.forEach`?  If we're not going to use fruitPrinter again anywhere else, this syntax can be quite convenient.
+See how that `fruitPrinter` function is now declared right inside the call to `fruits.forEach`?  If we're not going to use fruitPrinter again anywhere else, this syntax can be quite convenient.
 
-#### Anonymous Functions
+**Anonymous Functions**
 
-There's one more way to shorten that up, and that's to remove the name from the function and make it an *anonymous function*.  
+We can shorten up our code even further by removing the "name" part of our function definition.
+
+This is called an *anonymous function*:
 
 ```javascript
-array.forEach(function (element, index) {
+fruits.forEach(function (element, index) {
     console.log(index + ". " + element);
 });
+// same output as above
 ```
 
 All three of these will have the exact same output.  If you don't believe me copy each one into your browser console and try it.
 
-### array.map() ###
+#### array.map()
 Similar to `forEach()`, `map()` traverses an array; this method, however, performs whatever callback function you pass into it on each element.  It outputs the results
 of the operation on each element as a new array.
 
@@ -75,7 +109,7 @@ var doubles = numbers.map(function doubler(num) {
 Fruity Example - pluralize all of our fruits  
 
 ```javascript
-fruits = fruits.map(function pluralize(element) {
+pluralized_fruits = fruits.map(function pluralize(element) {
 
   // if word ends in 'y', remove 'y' and add 'ies' to the end
     var lastLetter = element[element.length -1];
@@ -85,7 +119,13 @@ fruits = fruits.map(function pluralize(element) {
 
     return element + 's';
 });
-// [ "Apples", "Bananas", "Cherries", "Durians", "Elderberries",
+
+fruits // ORIGINAL ARRAY IS UNCHANGED!
+//=> ["Apple", "Banana", "Cherry", "Durian", "Elderberry",
+"Fig", "Guava", "Huckleberry", "Ice plant", "Jackfruit"];
+
+pluralized_fruits // MAP OUTPUT
+//=> [ "Apples", "Bananas", "Cherries", "Durians", "Elderberries",
 //   "Figs", "Guavas", "Huckleberries", "Ice plants", "Jackfruits"  ]
 ```
 
@@ -97,12 +137,12 @@ var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 numbers.map(function square(element) {
   return Math.pow(element, 2);
 });
-// [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+//=> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
 [map exercise](exercises_a.md#challenge-1-map)
 
-### array.filter() ###
+#### array.filter()
 With the `filter()` method you can create a *second* array filled with elements that pass certain criteria that you designate.  This is great for creating a sub array of fruits that start with vowels, a list of even numbers from a bigger list, and so on.  
   *It's important to remember that a filter method on an array requires a `boolean` return value for the callback function you pass as an argument.*
 
@@ -116,7 +156,7 @@ function vowelFruit(fruit) {
   return result;
 }
 var vowelFruits = fruits.filter(vowelFruit);
-// ["Apple", "Elderberry", "Ice plant"]
+//=> ["Apple", "Elderberry", "Ice plant"]
 ```
 
 Or alternatively:
@@ -127,7 +167,7 @@ var vowels = ["A", "E", "I", "O", "U"];
 var vowelFruits = fruits.filter(function vowelFruit(fruit) {
   return vowels.indexOf(fruit[0]) >= 0; // indexOf returns -1 if not found
 });
-// ["Apple", "Elderberry", "Ice plant"]
+//=> ["Apple", "Elderberry", "Ice plant"]
 
 ```
 
@@ -141,13 +181,13 @@ even = numbers.filter(function filterEvens(num) {
   var greaterThanFive = num > 5;
   return isEven && greaterThanFive;
 });
-// [6, 8, 10]
+//=> [6, 8, 10]
 
 ```
 
 [filter exercise](exercises_a.md#challenge-2-filter)
 
-### array.reduce() ###
+#### array.reduce()
 The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single element.
 
 Fruity Example - Return the first letter of every word in fruits concatenated into one single string:  
@@ -159,7 +199,7 @@ avgLen = fruits.reduce(function concatFirstLetter(previous, current, index) {
     }
   return previous + current[0];
 });
-// "ABCDEFGHIJ"
+//=> "ABCDEFGHIJ"
 
 ```
 
@@ -171,7 +211,9 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 sum = numbers.reduce(function add(previous, current) {
   return current + previous;
 });
-// sum is 55
+
+sum
+//=> 55
 
 ```
 
@@ -185,7 +227,9 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 sum = numbers.reduce(function add(previous, current) {
   return current + previous;
 }, 100);
-// sum is 155
+
+sum
+//=> 155
 ```
 
 In the above example, the first time the callback is called it receives `100` and `1`.
@@ -194,20 +238,21 @@ In the above example, the first time the callback is called it receives `100` an
 [reduce exercise](exercises_a.md#challenge-3-reduce)
 
 
-### documentation ###
+## Documentation
 
-[Here is a link to the Mozilla Developer Network page on Javascript Arrays and prototype methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+The Mozilla Developer Network (MDN) has awesome documentation on Javascript's built-in [Array prototype methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
 
-### exercises ###
+> **Pro-Tip**: Want to code like a pro? Memorize the built-in methods, and know how to use them!
+
+## Array Manipulation Exercises
 
 Before we move on let's do the `map`, `reduce` and `filter` exercises.
 **Challenge Set A 1-3**
 
 
-# Iterators #
+# Iterators
 
-Let's go back to forEach and think about how it works.
-What's happening internally?
+Let's think about `forEach` again. What's happening behind the scenes?
 
 * What are our inputs?
 * What is our output?
@@ -225,21 +270,9 @@ Let's check:
 });
 ```
 
+Given the above, how would you build `forEach` yourself?
 
-## Writing our own ##
+## Exercise: Create your own iterators
 
-Let's go back to forEach one more time and review.
-What's happening internally?
+We are going to [**implement our own iterators**](https://github.com/sf-wdi-27-28/building_js_iterators_lab), from scratch. 
 
-* What are our inputs?
-* What is our output?
-* What happens on each loop?
-* What does the callback function do?
-* What gets passed into our callback function? i.e. what arguments?
-  * Where does it come from?
-  * How do we know what to name it?
-
-### The Big Challenge ###
-
-We are going to **implement our own iterators**, from scratch.
-Head on over to the lab repo and we'll get started. https://github.com/YOUR-CLASS/building_js_iterators_lab
