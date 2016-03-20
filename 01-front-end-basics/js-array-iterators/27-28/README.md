@@ -260,14 +260,7 @@ The Mozilla Developer Network (MDN) has awesome documentation on Javascript's bu
 
 > **Pro-Tip**: Want to code like a pro? Memorize the built-in methods, and know how to use them!
 
-## Exercises
-
-Before we move on let's do the [Array Manipulation Exercises](exercises_a.md): `map`, `reduce` and `filter`.
-
-
-# Building Iterators
-
-## Reading documentation
+#### Reading documentation
 
 Let's take a quick look at what MDN says about [Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
@@ -298,7 +291,14 @@ The documentation specifies that the callback will receive 3 arguments when call
 
 > **Note**: When it says `[, thisArg]`, the brackets mean that this is an **optional** argument. It is not an array! And we will *not* use this argument in today's lab.
 
-#### How does it work?
+## Exercises
+
+Before we move on let's do the [Array Manipulation Exercises](exercises_a.md): `map`, `reduce` and `filter`.
+
+
+# Building Iterators
+
+#### How does `forEach` work?
 Let's think about `forEach` again. What's happening behind the scenes?
 
 * What are our inputs?
@@ -343,7 +343,7 @@ Output from the callback
 
 Given the above, how would you build `forEach` yourself?
 
-## Exercise: Create your own iterators
+## Exercise: Build your own iterators
 
 We are going to [**implement our own iterators**](https://github.com/sf-wdi-27-28/building_js_iterators_lab), from scratch. 
 
