@@ -267,6 +267,38 @@ Before we move on let's do the [Array Manipulation Exercises](exercises_a.md): `
 
 # Building Iterators
 
+## Reading documentation
+
+Let's take a quick look at what MDN says about [Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
+```
+arr.forEach(callback[, thisArg])
+```
+
+#### Questions
+<details>
+<summary>
+**What parameters does `forEach` have?** (Click Here)
+</summary>
+The documentation states that `forEach` takes the following arguments:
+1. a callback function
+2. an optional argument
+</details>
+
+<details>
+<summary>
+**What parameters does the *callback* have?** (Click here)
+</summary>
+The documentation specifies that the callback will receive 3 arguments when called:
+1. `currentValue`
+2. `index`
+3. `array`
+
+</details>
+
+> **Note**: When it says `[, thisArg]`, the brackets mean that this is an **optional** argument. It is not an array! And we will *not* use this argument in today's lab.
+
+#### How does it work?
 Let's think about `forEach` again. What's happening behind the scenes?
 
 * What are our inputs?
@@ -284,6 +316,30 @@ Let's check:
   console.log(element, index, array);
 });
 ```
+
+
+<details><summary>
+**What are our inputs?** (Click Here)
+</summary>
+Inputs to `forEach`:
+1. `callback` (a function) - e.g. `printer`
+2. `thisArg` (an optional argument) - not used
+
+Inputs to the callback:
+1. `currentValue` - e.g. `300`
+2. `index` - e.g. `3`
+3. `array` - e.g. `[0, 100, 200, 300]`
+</details>
+  
+<details><summary>
+**What is our output?** (Click Here)
+</summary>
+Output from calling `forEach`:
+* `undefined` - You can confirm this in your console.
+
+Output from the callback
+1. We're not explicitily returning anything in this case, but we do `console.log` every time the callback is called (every loop).
+</details>
 
 Given the above, how would you build `forEach` yourself?
 
