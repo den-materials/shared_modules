@@ -5,13 +5,15 @@
 |Learning Objectives|
 | :--- |
 | Review `for` loops and their use cases |
-| Compare and contrast `for` loops and `forEach` |
+| Compare and contrast `for` and `forEach` |
 | Review the callback pattern and callback arguments |
-| Discuss iterators `map`, `reduce`, and `filter` |
-| Use iterators to solve common array manipulation tasks |
-| Create our own implementation of iterators `forEach`, `map`, and `reduce` |
+| Discuss common problems solved by `map`, `reduce`, and `filter` |
+| Practice manipulating arrays using built in array methods |
+| Create our own implementation of `forEach`, `map`, and `reduce` |
 
 It's time to dig a little deeper into arrays, and array manipulation methods.
+
+# Using Iterators
 
 ## `for` Loop Review
 We've already seen that we can traverse an array of elements with a simple `for` loop.
@@ -28,15 +30,27 @@ for(var i=0; i<=potatoes.length-1; i++){
 //=> undefined
 ```
 
-The `for` loop is a great tool! But look at all that configuration we had to do `var i=0; i<=potatoes.length-1; i++`. As you may have discovered, it's a little too easy to have an off-by-one error, or create an infinite loop!
+If you're not careful, you end up with common problems, like:
+* *off-by-one* errors!
+* *infinite loops*!
 
-Enter `forEach`!
+Sometimes all you need is a screw-driver.
 
-## Built in Array Iterator Methods
+Sometimes you need a power-drill.
+
+<img src="https://media.giphy.com/media/uy1hknkaJu8UM/giphy.gif" width="200px">
+
+It's time we "leveled-up" and learned about `forEach`!
+
+## Built-In Array Iteration Methods
 
 #### array.forEach()
 
-Looping over arrays is such a common problem, that a clever programmer decided it should just be a built in method (`Array.prototype.forEach`). That way we don't have to figure out how long the array is, and how many times we need to loop. We can just trust that `forEach` will do that for us!
+Looping over arrays is such a common problem that a clever programmer decided it should just be a built-in method (`Array.prototype.forEach`).
+
+We can just trust that `forEach` will:
+* Always loop the correct number of times
+* Always give us the current `value`, current `index`, and the original `array`.
 
 Here's an example of looping over a list of `fruits`:
 
@@ -73,7 +87,7 @@ fruits.forEach(function fruitPrinter(element, index) {
 // same output as above
 ```
 
-See how that `fruitPrinter` function is now declared right inside the call to `fruits.forEach`?  If we're not going to use fruitPrinter again anywhere else, this syntax can be quite convenient.
+See how `fruitPrinter` is now declared right inside the call to `fruits.forEach`?  If we don't need to use `fruitPrinter` anywhere else, this syntax can be quite convenient.
 
 **Anonymous Functions**
 
@@ -96,7 +110,7 @@ of the operation on each element as a new array.
 
 Often we want to do more than just perform an action, like console.log(), on every loop.  When we actually want to modify/manipulate our array, map is our best friend!
 
-Example - double every number in an array
+**Example** - Double every number
 
 ```JavaScript
 var numbers = [1, 4, 9];
@@ -106,7 +120,7 @@ var doubles = numbers.map(function doubler(num) {
 // doubles is now [2, 8, 18]. numbers is still [1, 4, 9]
 ```
 
-Fruity Example - pluralize all of our fruits  
+**Example** - Pluralize all the fruit names
 
 ```javascript
 pluralized_fruits = fruits.map(function pluralize(element) {
@@ -129,7 +143,7 @@ pluralized_fruits // MAP OUTPUT
 //   "Figs", "Guavas", "Huckleberries", "Ice plants", "Jackfruits"  ]
 ```
 
-Numbers Example - Square each number in an array
+**Example** - Square each number
 
 ```javascript
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -140,13 +154,13 @@ numbers.map(function square(element) {
 //=> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
-[map exercise](exercises_a.md#challenge-1-map)
+**Exercise**: [let's play with `map`](exercises_a.md#challenge-1-map)
 
 #### array.filter()
 With the `filter()` method you can create a *second* array filled with elements that pass certain criteria that you designate.  This is great for creating a sub array of fruits that start with vowels, a list of even numbers from a bigger list, and so on.  
   *It's important to remember that a filter method on an array requires a `boolean` return value for the callback function you pass as an argument.*
 
-Fruity Example - Return a list of fruits that start with vowels:  
+**Example** - Return a list of fruits that start with vowels
 
 ```javascript
 var vowels = ["A", "E", "I", "O", "U"];
@@ -171,7 +185,7 @@ var vowelFruits = fruits.filter(function vowelFruit(fruit) {
 
 ```
 
-Numbers Example - Find all even numbers within an array that are greater than 5:  
+**Example** - Find all the even numbers that are greater than 5 
 
 ```javascript
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -185,12 +199,12 @@ even = numbers.filter(function filterEvens(num) {
 
 ```
 
-[filter exercise](exercises_a.md#challenge-2-filter)
+**Exercise**: [let's play with `filter`](exercises_a.md#challenge-2-filter)
 
 #### array.reduce()
 The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single element.
 
-Fruity Example - Return the first letter of every word in fruits concatenated into one single string:  
+**Example** - Return the first letter of every word, as a single string
 
 ```javascript
 avgLen = fruits.reduce(function concatFirstLetter(previous, current, index) {
@@ -203,7 +217,7 @@ avgLen = fruits.reduce(function concatFirstLetter(previous, current, index) {
 
 ```
 
-Numbers Example - Find the sum of all of the numbers in an array:
+**Example** - Find the sum of all of the numbers in an array
 
 ```javascript
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -217,9 +231,9 @@ sum
 
 ```
 
-In the above examples, notice how the first time the callback is called it receives
-element[0] and element[1].  There is another way to call this function and specify
-an initial starting point.  
+> In the above examples, notice how the first time the callback is called it receives `element[0]` and `element[1]`.
+ 
+There is another way to call this function and specify an initial starting point. 
 
 ```javascript
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -233,12 +247,13 @@ sum
 ```
 
 In the above example, the first time the callback is called it receives `100` and `1`.
-*(See the 100 we passed as a 2nd argument? That's an optional argument.)
 
-[reduce exercise](exercises_a.md#challenge-3-reduce)
+> **Note**: We set the starting value to `100` by passing in an optional second argument to reduce. 
+
+**Exercise**: [ket's play with reduce](exercises_a.md#challenge-3-reduce)
 
 
-## Documentation
+## Array Documentation
 
 The Mozilla Developer Network (MDN) has awesome documentation on Javascript's built-in [Array prototype methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
 
@@ -250,7 +265,7 @@ Before we move on let's do the `map`, `reduce` and `filter` exercises.
 **Challenge Set A 1-3**
 
 
-# Iterators
+# Building Iterators
 
 Let's think about `forEach` again. What's happening behind the scenes?
 
