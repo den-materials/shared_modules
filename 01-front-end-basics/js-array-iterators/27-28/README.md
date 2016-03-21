@@ -42,6 +42,44 @@ Sometimes you need a power-drill.
 
 It's time we "leveled-up" and learned about iterators like `forEach`!
 
+## Array Documentation
+
+The Mozilla Developer Network (MDN) has awesome documentation on Javascript's built-in [Array prototype methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
+
+> **Pro-Tip**: Want to code like a pro? Memorize the built-in methods, and know how to use them!
+
+#### Reading documentation
+
+Let's take a quick look at what MDN says about [Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
+```
+arr.forEach(callback[, thisArg])
+```
+
+#### Questions
+<details>
+<summary>
+**What parameters does `forEach` have?** (Click Here)
+</summary>
+The documentation states that `forEach` takes the following arguments:
+* 1. a callback function
+* 2. an optional argument
+</details>
+
+<details>
+<summary>
+**What parameters does the *callback* have?** (Click here)
+</summary>
+The documentation specifies that the callback will receive 3 arguments when called:
+* 1. `currentValue`
+* 2. `index`
+* 3. `array`
+
+</details>
+
+> **Note**: When it says `[, thisArg]`, the brackets mean that this is an **optional** argument. It is not an array! And we will *not* use this argument in today's lab.
+
+
 ## Array.prototype.forEach()
 
 Looping over arrays is such a common problem that a clever programmer decided it should just be a built-in method (`Array.prototype.forEach`).
@@ -252,44 +290,6 @@ In the above example, the first time the callback is called it receives `100` an
 
 #### Exercise - Reduce
 [Let's play with `reduce`](exercises_a.md#challenge-3-reduce)
-
-
-## Array Documentation
-
-The Mozilla Developer Network (MDN) has awesome documentation on Javascript's built-in [Array prototype methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
-
-> **Pro-Tip**: Want to code like a pro? Memorize the built-in methods, and know how to use them!
-
-#### Reading documentation
-
-Let's take a quick look at what MDN says about [Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-
-```
-arr.forEach(callback[, thisArg])
-```
-
-#### Questions
-<details>
-<summary>
-**What parameters does `forEach` have?** (Click Here)
-</summary>
-The documentation states that `forEach` takes the following arguments:
-* 1. a callback function
-* 2. an optional argument
-</details>
-
-<details>
-<summary>
-**What parameters does the *callback* have?** (Click here)
-</summary>
-The documentation specifies that the callback will receive 3 arguments when called:
-* 1. `currentValue`
-* 2. `index`
-* 3. `array`
-
-</details>
-
-> **Note**: When it says `[, thisArg]`, the brackets mean that this is an **optional** argument. It is not an array! And we will *not* use this argument in today's lab.
 
 ## Exercises
 
