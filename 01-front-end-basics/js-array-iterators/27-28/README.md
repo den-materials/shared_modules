@@ -100,7 +100,7 @@ numbers.map(function square(element) {
 // [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
-[map exercise](exercises_a.md#challenge-1-map)
+[map exercise](exercises.md#challenge-1-map)
 
 ### array.filter() ###
 With the `filter()` method you can create a *second* array filled with elements that pass certain criteria that you designate.  This is great for creating a sub array of fruits that start with vowels, a list of even numbers from a bigger list, and so on.  
@@ -145,7 +145,7 @@ even = numbers.filter(function filterEvens(num) {
 
 ```
 
-[filter exercise](exercises_a.md#challenge-2-filter)
+[filter exercise](exercises.md#challenge-2-filter)
 
 ### array.reduce() ###
 The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single element.
@@ -191,7 +191,7 @@ sum = numbers.reduce(function add(previous, current) {
 In the above example, the first time the callback is called it receives `100` and `1`.
 *(See the 100 we passed as a 2nd argument? That's an optional argument.)
 
-[reduce exercise](exercises_a.md#challenge-3-reduce)
+[reduce exercise](exercises.md#challenge-3-reduce)
 
 
 ### documentation ###
