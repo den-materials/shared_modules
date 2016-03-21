@@ -192,7 +192,7 @@ numbers.map(function square(element) {
 //=> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
-#### Exercise - [Map](exercises_a.md#challenge-1-map)
+#### Exercise - [Map](exercises.md#challenge-1-map)
 
 ## Array.prototype.filter() - [Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Filter)
 With the `filter()` method you can create a *second* array filled with elements that pass certain criteria that you designate.  This is great for creating a sub array of fruits that start with vowels, a list of even numbers from a bigger list, and so on.  
@@ -237,7 +237,7 @@ even = numbers.filter(function filterEvens(num) {
 
 ```
 
-#### Exercise - [Filter](exercises_a.md#challenge-2-filter)
+#### Exercise - [Filter](exercises.md#challenge-2-filter)
 
 ## Array.prototype.reduce() - [Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single element.
@@ -288,11 +288,11 @@ In the above example, the first time the callback is called it receives `100` an
 
 > **Note**: We set the starting value to `100` by passing in an optional second argument to reduce. 
 
-#### Exercise - [Reduce](exercises_a.md#challenge-3-reduce)
+#### Exercise - [Reduce](exercises.md#challenge-3-reduce)
 
 ## Exercises
 
-Before we move on let's do the [Array Manipulation Exercises](exercises_a.md): `map`, `reduce` and `filter`.
+Before we move on let's finish the [Array Manipulation Exercises](exercises.md) for `map`, `filter`, and `reduce`.
 
 
 # Building Iterators
