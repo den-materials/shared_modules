@@ -274,8 +274,8 @@ arr.forEach(callback[, thisArg])
 **What parameters does `forEach` have?** (Click Here)
 </summary>
 The documentation states that `forEach` takes the following arguments:
-1. a callback function
-2. an optional argument
+* 1. a callback function
+* 2. an optional argument
 </details>
 
 <details>
@@ -283,9 +283,9 @@ The documentation states that `forEach` takes the following arguments:
 **What parameters does the *callback* have?** (Click here)
 </summary>
 The documentation specifies that the callback will receive 3 arguments when called:
-1. `currentValue`
-2. `index`
-3. `array`
+* 1. `currentValue`
+* 2. `index`
+* 3. `array`
 
 </details>
 
@@ -322,13 +322,13 @@ Let's check:
 **What are our inputs?** (Click Here)
 </summary>
 Inputs to `forEach`:
-1. `callback` (a function) - e.g. `printer`
-2. `thisArg` (an optional argument) - not used
+* 1. `callback` (a function) - e.g. `printer`
+* 2. `thisArg` (an optional argument) - not used
 
 Inputs to the callback:
-1. `currentValue` - e.g. `300`
-2. `index` - e.g. `3`
-3. `array` - e.g. `[0, 100, 200, 300]`
+* 1. `currentValue` - e.g. `300`
+* 2. `index` - e.g. `3`
+* 3. `array` - e.g. `[0, 100, 200, 300]`
 </details>
   
 <details><summary>
@@ -337,8 +337,8 @@ Inputs to the callback:
 Output from calling `forEach`:
 * `undefined` - You can confirm this in your console.
 
-Output from the callback
-1. We're not explicitily returning anything in this case, but we do `console.log` every time the callback is called (every loop).
+Output from the callback:
+* We're not explicitily returning anything in this case, but we do `console.log` every time the callback is called (every loop).
 </details>
 
 Given the above, how would you build `forEach` yourself?
