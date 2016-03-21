@@ -61,6 +61,7 @@ arr.forEach(callback[, thisArg])
 <summary>
 **What parameters does `forEach` have?** (Click Here)
 </summary>
+<br>
 The documentation states that `forEach` takes the following arguments:
 * 1. a callback function
 * 2. an optional argument
@@ -70,6 +71,7 @@ The documentation states that `forEach` takes the following arguments:
 <summary>
 **What parameters does the *callback* have?** (Click here)
 </summary>
+<br>
 The documentation specifies that the callback will receive 3 arguments when called:
 * 1. `currentValue`
 * 2. `index`
@@ -80,9 +82,9 @@ The documentation specifies that the callback will receive 3 arguments when call
 > **Note**: When it says `[, thisArg]`, the brackets mean that this is an **optional** argument. It is not an array! And we will *not* use this argument in today's lab.
 
 
-## Array.prototype.forEach()
+## Array.prototype.forEach() - [Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ForEach)
 
-Looping over arrays is such a common problem that a clever programmer decided it should just be a built-in method (`Array.prototype.forEach`).
+Looping over arrays is such a common problem that the built-in Array method (`Array.prototype.forEach`) was created.
 
 We can just trust that `forEach` will:
 * Always loop the correct number of times
@@ -98,7 +100,7 @@ function fruitPrinter(current_value, current_index) {
     console.log(current_index + ". " + current_value);
 }
 
-array.forEach(fruitsPrinter);
+fruits.forEach(fruitsPrinter);
 
 // 0. Apple
 // 1. Banana
@@ -111,10 +113,10 @@ array.forEach(fruitsPrinter);
 // 8. Ice plant
 // 9. Jackfruit
 //=> ["Apple", "Banana", "Cherry", "Durian", "Elderberry",
-"Fig", "Guava", "Huckleberry", "Ice plant", "Jackfruit"];
+//    "Fig", "Guava", "Huckleberry", "Ice plant", "Jackfruit"];
 ```
 
-A little later we saw that we could write the same thing a little more succinctly.
+We can write the same thing a little more succinctly.
 
 ```javascript
 fruits.forEach(function fruitPrinter(value, index) {
@@ -140,7 +142,7 @@ fruits.forEach(function (value, index) {
 
 All three of these will have the exact same output.  If you don't believe me copy each one into your browser console and try it.
 
-## Array.prototype.map()
+## Array.prototype.map() - [Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Map)
 Similar to `forEach()`, `map()` traverses an array; this method, however, performs whatever callback function you pass into it on each element.  It outputs the results
 of the operation on each element as a new array.
 
@@ -172,11 +174,11 @@ pluralized_fruits = fruits.map(function pluralize(element) {
 
 fruits // ORIGINAL ARRAY IS UNCHANGED!
 //=> ["Apple", "Banana", "Cherry", "Durian", "Elderberry",
-"Fig", "Guava", "Huckleberry", "Ice plant", "Jackfruit"];
+//    "Fig", "Guava", "Huckleberry", "Ice plant", "Jackfruit"];
 
 pluralized_fruits // MAP OUTPUT
 //=> [ "Apples", "Bananas", "Cherries", "Durians", "Elderberries",
-//   "Figs", "Guavas", "Huckleberries", "Ice plants", "Jackfruits"  ]
+//    "Figs", "Guavas", "Huckleberries", "Ice plants", "Jackfruits"  ]
 ```
 
 #### Example: Square each number
@@ -190,10 +192,9 @@ numbers.map(function square(element) {
 //=> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
-#### Exercise - Map
-[Let's play with `map`](exercises_a.md#challenge-1-map)
+#### Exercise - [Map](exercises_a.md#challenge-1-map)
 
-## Array.prototype.filter()
+## Array.prototype.filter() - [Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Filter)
 With the `filter()` method you can create a *second* array filled with elements that pass certain criteria that you designate.  This is great for creating a sub array of fruits that start with vowels, a list of even numbers from a bigger list, and so on.  
   *It's important to remember that a filter method on an array requires a `boolean` return value for the callback function you pass as an argument.*
 
@@ -236,10 +237,9 @@ even = numbers.filter(function filterEvens(num) {
 
 ```
 
-#### Exercise - Filter
-[Let's play with `filter`](exercises_a.md#challenge-2-filter)
+#### Exercise - [Filter](exercises_a.md#challenge-2-filter)
 
-## Array.prototype.reduce()
+## Array.prototype.reduce() - [Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single element.
 
 #### Example: Return the first letter of every word, as a single string
@@ -288,8 +288,7 @@ In the above example, the first time the callback is called it receives `100` an
 
 > **Note**: We set the starting value to `100` by passing in an optional second argument to reduce. 
 
-#### Exercise - Reduce
-[Let's play with `reduce`](exercises_a.md#challenge-3-reduce)
+#### Exercise - [Reduce](exercises_a.md#challenge-3-reduce)
 
 ## Exercises
 
