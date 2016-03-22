@@ -4,7 +4,7 @@ The homeworks and readings below are intended to prepare you for the next day's 
 
 If you have any remaining time, please complete/review the exercises from dawn and dusk lectures. You can also review the morning drills.
 
-Please refer to the [Instructions for Submitting Homework](/how-to/homework-submission.md).
+Please refer to the [Instructions for Submitting Homework](https://github.com/SF-WDI-LABS/shared_modules/blob/master/how-to/submit-homework.md).
 
 ## Day 1
 
