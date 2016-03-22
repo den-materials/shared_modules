@@ -28,14 +28,14 @@ Please use any remaining time to complete and review the morning/afternoon exerc
 Please use any remaining time to complete and review the exercises from dawn & dusk. 
 -->
 
-<!-- 
+ 
 ## Day 3
 
-1. Reading
+1. Check out <a href="https://youtu.be/SS-9y0H3Si8" target="_blank">this video</a> on Object Oriented Programming.  It's a fantastic introduction without getting too into the weeds. 
+  
 2. Bonus/Stretch
 
 Please use any remaining time to complete and review the exercises from dawn & dusk. 
--->
 
 <!-- 
 ## Day 4
