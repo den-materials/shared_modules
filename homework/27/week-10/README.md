@@ -11,5 +11,5 @@
 
 # Day 5
 
-1. Create or update your [portfolio](/portfolio.md)!
-2. Prepare a [lightning talk](/lightning-talk.md) on a technology we haven't covered. 
+1. Create or update your [portfolio](./portfolio.md)!
+2. Prepare a [lightning talk](./lightning-talk.md) on a technology we haven't covered. 
