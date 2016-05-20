@@ -105,20 +105,7 @@ If you're going to build your own server from scratch to connect to your Angular
 
   <!DOCTYPE html>
   <html ng-app="sampleApp">
-  <head>
-    <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="/">
-
-  	<%= stylesheet_link_tag :application, media: :all %>
-    <%= javascript_include_tag :application %>
-
-    <title>RailsAngularSample</title>
-  </head>
-  <body>
-  	<%= yield %>
-  </body>
-  </html>
+  ...
   ```
 
 3. Add the `ng-view` directive inside the `<body>` tag in `app/views/site/index.html.erb`:
@@ -167,8 +154,8 @@ If you're going to build your own server from scratch to connect to your Angular
    * app/assets/javascripts/application.js
    */
 
-  //= require angular.min
-  //= require angular-route.min
+  ...
+
   //= require angular-rails-templates
   //= require_tree ../templates
   ```
@@ -243,7 +230,7 @@ If you're going to build your own server from scratch to connect to your Angular
   };
 
   ```
-3. Test `greeting` on your view.
+3. Test `greeting` in your view.
 
 #### Miscellaneous Setup
 
@@ -327,7 +314,7 @@ Now that your Angular app is all set up, it's time to CRUD a resource! You'll ne
   end
   ```
 
-3. User the Angular `$http` service to interact with your JSON API endpoints. See the module on <a href="https://github.com/SF-WDI-LABS/shared_modules/tree/master/03-angular-mean/http/28">http</a> for reference.
+3. Use the Angular `$http` service to interact with your JSON API endpoints. See the module on <a href="https://github.com/SF-WDI-LABS/shared_modules/tree/master/03-angular-mean/http/28">http</a> for reference.
 
 ## Challenges
 
@@ -338,3 +325,5 @@ Now that your Angular app is all set up, it's time to CRUD a resource! You'll ne
 1. Once you app is set up, build a JSON API to CRUD one resource (`todos` are always a good start). You can test your API routes on Postman.
 
 2. Use Angular `$http` to query your API endpoints from the client side to implement full CRUD in your single-page app.
+
+3. Create a new show details route.
