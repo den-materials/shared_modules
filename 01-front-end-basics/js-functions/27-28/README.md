@@ -306,9 +306,9 @@ To keep track of the functions JS has on hold, it uses a **call stack**. As JS c
 ![](http://i.stack.imgur.com/4Z6xK.png)
 
 
-##Function Recursion 
+## Recursion 
 
-Function recursion is the act of a function calling itself within its own code.  Traditionally, *recursive* functions require at least one parameter passed in.  Each time a function calls iself, the value of the parameter is changed to produce a desired effect.
+Recursion is the name for when a function calls itself (within its own definition/code).  Traditionally, *recursive* functions require at least one parameter passed in.  Each time a function calls iself, the value of the parameter is changed to produce a desired effect.
 
 ```javascript
 /* Display all numbers from num to 0 on the screen */

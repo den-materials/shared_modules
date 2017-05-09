@@ -74,7 +74,7 @@ You can also add a CNAME with `www` and the IPv4 address as your heroku app. Ove
 
 We're nearly there and we can check that our custom domain name is doing something different now. Unfortunately, that something different is the classic heroku error:
 
-![](https://support.dnsimple.com/files/dnsimple-heroku-nosuchapp.png)
+![image](https://cloud.githubusercontent.com/assets/6520345/19975152/24a387b0-a1a8-11e6-9142-67d266feed29.png)
 
 So, we need to tell Heroku that we want to use this custom domain name. For this app, go to Settings and scroll down to Domains.
 

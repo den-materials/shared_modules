@@ -141,7 +141,7 @@ This is assuming your main application file is called `index.js`. If your main f
     git commit -m "ready for heroku deploy attempt #1"
 ```
 
-12) Now we can deploy:
+11) Now we can deploy:
 ``` bash
     git push heroku master
 ```
@@ -152,7 +152,7 @@ If you missed a step just ask for help. Otherwise you should be able to visit yo
     heroku open
 ```
 
-13) If you have a seed task, you can run it now (assuming everything else is working):
+12) If you have a seed task, you can run it now (assuming everything else is working):
 
 ``` bash
 heroku run bash
